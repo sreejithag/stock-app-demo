@@ -1,0 +1,78 @@
+
+<app-header></app-header>
+<div class="vh-100 gradient-custom">
+    
+    <div class="container ">
+        <br />
+        <div class="row justify-content-center">
+            <div class="col col-md-8 col-lg-6 col-xl-5">
+                <h2>
+                    <p>The easiest way to buy and sell stocks</p>
+                </h2>
+                <p>Stock analysis and screening tool for investors in India</p>
+    
+            </div>
+            <div class="col-12 col-md-10 col-lg-8">
+                <form class="card card-sm" (ngSubmit)="submit()">
+                    <div class="card-body row no-gutters align-items-center">
+                        <div class="col-auto">
+                            <i class="fas fa-search h4 text-body"></i>
+                        </div>
+                        <!--end of col-->
+                        <div class="col">
+                            <input class="form-control form-control-lg form-control-borderless" id="company" list="suggestions"
+                            (keyup)="update()"
+                            [(ngModel)]="typed" [ngModelOptions]="{standalone:true}">
+                            <datalist id="suggestions">
+                                <option *ngFor ="let d of datalist" [value]="d">
+                              </datalist>
+                        </div>
+    
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+
+        <div class="card-header" *ngIf="notfound">Not found</div>
+
+        <div class="card text-center" *ngIf="results!=null">
+          <div class="card-header">
+            {{results.cname}}
+          </div>
+          <div class="list-group list-group-horizontal-md">
+            
+            <p class="list-group-item flex-fill "><strong>Market Cap</strong> &#X20B9; {{results.market_cap}}</p>
+            <p  class="list-group-item flex-fill "><strong>Divident Yiled</strong> {{results.divendent_yield}} %</p>
+            <p class="list-group-item flex-fill "><strong>Debt Equity</strong> {{results.debt_to_equity}} %</p>
+            
+            
+            </div>
+
+            <div class="list-group list-group-horizontal-md ">
+            
+                <p class="list-group-item flex-fill "><strong>Current Price</strong> &#X20B9; {{results.current_market_price}} </p>
+                <p class="list-group-item flex-fill "><strong>ROCE</strong> {{results.roce}} %</p>
+                <p class="list-group-item flex-fill "><strong>EPS</strong> &#X20B9; {{results.eps}} </p>
+            </div>
+                
+            <div class="list-group list-group-horizontal-md ">
+            
+                <p class="list-group-item flex-fill "><strong>Stock P/E</strong> {{results.stock_pe}} % </p>
+                <p  class="list-group-item flex-fill "><strong>ROE</strong> {{results.roe_pervious_annum}} % </p>
+                <p class="list-group-item flex-fill "><strong>Reserves</strong> &#X20B9; {{results.reserves}} </p>
+            
+            </div>
+            <div class="list-group list-group-horizontal-md ">
+            
+                <p class="list-group-item flex-fill "><strong>Debt</strong>  &#X20B9; {{results.debt}} </p>
+              
+            </div>
+          
+        </div>
+      </div>
+</div>
+  
+
+

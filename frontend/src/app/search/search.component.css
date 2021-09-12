@@ -1,0 +1,16 @@
+.form-control-borderless {
+  border: 1px;
+}
+
+.form-control-borderless:active {
+  outline: none !important;
+}
+.form-control-borderless:hover,
+.form-control-borderless:focus {
+  border: none;
+  outline: none;
+  box-shadow: 100px;
+}
+div {
+  text-align: center;
+}
